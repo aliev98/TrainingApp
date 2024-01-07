@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+<div class="text-center">
+    <h3>Training app - simplifying your fitness journey</h3>
+    <h4>Start by logging in or creating an account </h4>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+}
+else
+{
+    <script>
+        window.location.href = '@Url.Action("Index", "Dashboard")';
+    </script>
+}

@@ -1,0 +1,18 @@
+﻿@model List<TrainingApp.Models.Exercise>
+
+<h2>Available Exercises</h2>
+<p><a asp-controller="Exercise" asp-action="Index">Choose Exercises</a></p>
+
+<form asp-controller="Exercise" asp-action="ChooseExercises" method="post">
+    @foreach (var exercise in Model)
+    {
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="selectedExerciseIds" value="@exercise.ExerciseId" />
+                @exercise.Name
+            </label>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Choose Selected Exercises</button>
+</form>

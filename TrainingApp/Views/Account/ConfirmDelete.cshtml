@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Confirm Delete Account";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Add or adjust the layout path
+}
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h2 class="card-title">Confirm Account Deletion</h2>
+            <p class="card-text">Are you sure you want to delete your account? This action cannot be undone.</p>
+
+            <form method="post" action="/Account/DeleteAccount" class="mt-3 mb-3">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
+                </div>
+            </form>
+
+            <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model AppUser
+
+<h2 class="mb-4">Profile information</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Username</dt>
+    <dd class="col-sm-10">@Model.UserName</dd>
+
+    <dt class="col-sm-2">First Name</dt>
+    <dd class="col-sm-10">@Model.FirstName</dd>
+
+    <dt class="col-sm-2">Last Name</dt>
+    <dd class="col-sm-10">@Model.LastName</dd>
+
+    @if (Model.Goals != null)
+    {
+        <dt class="col-sm-2">Goals</dt>
+        <dd class="col-sm-10">@Model.Goals</dd>
+    }
+    @if (Model.Weight != null)
+    {
+        <dt class="col-sm-2">Weight</dt>
+        <dd class="col-sm-10">@Model.Weight kg</dd>
+    }
+    @if (Model.Height != null)
+    {
+        <dt class="col-sm-2">Height</dt>
+        <dd class="col-sm-10">@Model.Height cm</dd>
+    }
+
+</dl>
+
+<div class="text-center mt-4">
+    <a asp-action="UpdateProfile" asp-controller="Profile" class="btn btn-sm btn-primary">Update profile</a>
+</div>
+<div class="text-center mt-4">
+    <a asp-action="ConfirmDelete" asp-controller="Account" class="btn btn-sm btn-danger">Delete account</a>
+</div>

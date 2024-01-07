@@ -1,0 +1,27 @@
+﻿@model TrainingApp.Models.WorkoutPlanDetailsVM
+
+<h5>Workout plan /</h5>  <h2 class="mb-4"> @Model.WorkoutPlan.Name</h2>
+
+@*<h3>@Model.WorkoutPlan.Name</h3>*@
+
+<p>@*<strong>Description:</strong>*@ @Model.WorkoutPlan.Description</p>
+<p><strong>Duration:</strong> @Model.WorkoutPlan.DurationInDays days</p>
+<p><strong>Start Date:</strong> @Model.WorkoutPlan.StartDate.ToShortDateString()</p>
+<p><strong>End Date:</strong> @Model.WorkoutPlan.EndDate.ToShortDateString()</p>
+
+
+@if (Model.WorkoutPlan.Exercises.Any())
+{
+<h3>Exercises</h3>
+    <ul>
+        @foreach (var exercise in Model.WorkoutPlan.Exercises)
+        {
+             @Html.Raw(exercise.Sets != 0 && exercise.Reps != 0 ? $"<li>{@exercise.Name} - Sets: {@exercise.Sets}, Reps: {@exercise.Reps}</li>" : $"<li>{@exercise.Name}</li>");
+        }
+    </ul>
+}
+
+@*else
+{
+    <p>No exercises found for this workout plan.</p>
+}*@
