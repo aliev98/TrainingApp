@@ -12,7 +12,7 @@ namespace TrainingApp.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Duration in days is required")]
-        public int DurationInDays { get; set; }
+        public int DurationInDays { get; set; } = 1;
 
         [Required(ErrorMessage = "Start date is required")]
         [DataType(DataType.Date)]

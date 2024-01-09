@@ -1,5 +1,7 @@
 ﻿@model TrainingApp.Models.LoginVM
-
+@{
+   var Invalid = ViewBag.Invalid;
+}
 <h2>Login</h2>
 
 <form asp-controller="Account" asp-action="Login" method="post">
@@ -25,11 +27,16 @@
 
     @if (!ViewData.ModelState.IsValid)
     {
-       <div>
-            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        <div>
+            @if (Invalid!= null && Invalid==true)
             {
-                <p class="text-danger">@error.ErrorMessage</p>
+                <p class="text-danger">Invalid login attempt</p>
             }
+
+           @* @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+
+            {*@
     </div>
     }
 

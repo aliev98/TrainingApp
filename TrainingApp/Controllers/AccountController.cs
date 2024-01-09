@@ -34,6 +34,7 @@ namespace TrainingApp.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            ViewBag.Invalid = false;
             return View();
         }
 
@@ -58,11 +59,13 @@ namespace TrainingApp.Controllers
                     if (result.Succeeded)
                     {
                         // Redirect to the dashboard after successful login
+                         ViewBag.Invalid = false;
                          return RedirectToAction("Index", "Dashboard");
                     }
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt");
+                ViewBag.Invalid = true;
             }
 
             return View(model);
